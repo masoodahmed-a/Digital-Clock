@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Clock</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .container{
+            width: 260px;
+            margin-left: 580px;
+        }
+    </style>
+</head>
+<body class="bg-indigo-200">
+    <h3 class="text-center mt-10 text-3xl  text-blue-500 font-semibold "> CLOCK</h3>
+
+   <div class="container bg-white text-center text-3xl font-bold p-5 mt-10  border-2 border-black ">
+       <div class="clock" id="time">12:00:00</div>
+   </div>
+
+   <script>
+       setInterval (() =>{
+        let time = document.getElementById("time")
+        let date = new Date()
+       let hours = date.getHours()
+       let minute = date.getMinutes()
+       let seconds = date.getSeconds()
+       let dayNight = "AM"
+
+       if(hours > 12){
+           hours = hours-12
+           dayNight = "PM"
+       }
+
+       if(hours < 10){
+           hours = "0" + hours
+       }
+
+       if (seconds<10){
+           seconds = "0" + seconds
+       } 
+       if(minute<10){
+           minute = "0" + minute
+       }
+
+       time.textContent = hours + " : " + minute +" : "+  seconds + " " +  dayNight
+
+    })
+
+    
+
+   </script>
+</body>
+</html>
